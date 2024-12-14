@@ -35,6 +35,35 @@ login.post('/getRole', async(req, res) => {
 
 });
 
+login.post('/addUser', async(req, res) => {
+    try {
+        const addData = await User.create(req.body)
+        if (addData) {
+            return res.status(201).json({ status:200,message: 'User created successfully.', data: addData });
+        } else {
+            return res.status(500).json({ status:500,error: 'User creation failed.' });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'An error occurred during user creation.' });
+    }
+});
+
+
+login.post('/getInfor', async(req, res) => {
+    try {
+
+
+        const roleData = await Role.findOne({ where: {id:1}})
+        res.status(200).json({ roleData } );
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'An error occurred during user creation.' });
+    }
+
+});
+
+
 
 module.exports = login;
 

@@ -17,6 +17,21 @@ const User = sequelize.define('User', {
         unique: false,
         allowNull: true,
     },
+    firstName: {
+        type: Sequelize.STRING,
+        unique: false,
+        allowNull: true,
+    },
+    lastName: {
+        type: Sequelize.STRING,
+        unique: false,
+        allowNull: true,
+    },
+    mobile: {
+        type: Sequelize.STRING,
+        unique: false,
+        allowNull: true,
+    },
     role: {
         type: Sequelize.STRING,
         unique: false,
@@ -193,5 +208,4 @@ const TestReport = sequelize.define('TestReport', {
     timestamps: true,
 });
 
-
-module.exports = { sequelize, User,Role,Lession,TestLession,Assign,TestReport   }
+module.exports = {sequelize, User, Role, Lession, TestLession, Assign, TestReport}
